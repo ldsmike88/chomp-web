@@ -1,10 +1,10 @@
 # Chomp Meal Planner
 
-This is not intended to be your micromanagent planner that tells you what you're eating at 6pm next Tuesday. This is the "I'm out of food, what should I buy from the grocery store this time?" meal planner and the "What did I buy again?" meal planner. Enjoy.
+This is not intended to be your micromanagement planner that tells you what you're eating at 6pm next Tuesday. This is the "I'm out of food, what should I buy from the grocery store this time?" meal planner and the "What did I buy again?" meal planner. Enjoy.
 
 ### Features
 - Suggest meals
-  - Your meals. Not some curated by someone else meals. Yours. After you add your meals to the app, it will suggest which of your meals to add to your meal plan based on how often you eat a given meal and how long it's been since you last ate it.
+  - Your meals. Not some curated-by-someone-else meals. Yours. After you add your meals to the app, it will suggest which of your meals to add to your meal plan based on how often you eat a given meal and how long it's been since you last ate it.
 - Remember what you have
   - When you add meals to your plan they stay in your "kitchen" until you mark them as eaten. This helps you remember what you bought and even which leftovers you still have in the fridge.
 - Connected to stores

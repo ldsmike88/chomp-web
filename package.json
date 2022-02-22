@@ -1,0 +1,19 @@
+{
+  "name": "chomp-web",
+  "version": "0.0.1",
+  "description": "React web front-end for the Chomp Meal Planner app",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ldsmike88/chomp-web.git"
+  },
+  "author": "Michael Cox",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ldsmike88/chomp-web/issues"
+  },
+  "homepage": "https://github.com/ldsmike88/chomp-web#readme"
+}

@@ -1,6 +1,6 @@
 # Chomp Meal Planner
 
-This is not intended to be your micromanagement planner that tells you what you're eating at 6pm next Tuesday. This is the "I'm out of food, what should I buy from the grocery store this time?" meal planner and the "What did I buy again?" meal planner. Enjoy.
+This is not intended to be your micromanagement planner that tells you what you're eating at 6pm next Tuesday. This is the "I'm out of food, what should I buy from the grocery store this time?" meal planner and the "What did I buy again?" meal planner. It's to help you make sure you have food for the next x-number of days/weeks/months and then help you remember what you have available to eat. Enjoy.
 
 ## Features
 - Suggest meals
@@ -21,10 +21,10 @@ This is not intended to be your micromanagement planner that tells you what you'
 - [ ] #3 Display a transfer list of: left, meals sorted by suggested to recently eaten; right, meals selected from left
 - [ ] #4 When user adds a meal to the plan (moves from left to right in #3), display a dialog box of sides that go with it
 - [ ] #5 When there is at least one meal on the right of #3, display two buttons: "Add to Cart" & "Move to Kitchen"
-- [ ] #6 Display a list of meals in the kicthen. Users can remove meals from the kitchen as they are eaten.
+- [ ] #6 Display a list of meals in the kitchen. Users can remove meals from the kitchen as they are eaten.
 - [ ] #7 Add API connections to Walmart, Instacart, etc.
 
 ## Ideas for Future Features
 
-Sections for snacks and dessserts
-Suggest new recipes based on what you have in your kitchen
+- Sections for snacks and desserts
+- Suggest new recipes based on what you have in your kitchen

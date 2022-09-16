@@ -1,6 +1,6 @@
 import { CssBaseline } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Layout from './Layout';
+import Router from './Router';
 
 const theme = createTheme({
   palette: {
@@ -17,7 +17,7 @@ const theme = createTheme({
 const App = () => (
   <ThemeProvider theme={theme}>
     <CssBaseline />
-    <Layout />
+    <Router />
   </ThemeProvider>
 );
 

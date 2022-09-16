@@ -13,6 +13,7 @@ import {
   Toolbar,
   Typography,
 } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import { Menu, Settings } from '@mui/icons-material';
 
 const webPages = ['Planner', 'Kitchen', 'Shopping List'];
@@ -20,6 +21,7 @@ const mobilePages = [...webPages, 'divider', 'Settings', 'Account', 'About'];
 
 const MenuBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = open => event => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -61,7 +63,11 @@ const MenuBar = () => {
                       <Divider key={text} /> :
                       (
                         <ListItem button key={text}>
-                          <ListItemText primary={text} />
+                          <ListItemText
+                            // primary={<Link to={text.replace(/\s/g, '_')}>{text}</Link>}
+                            primary={text}
+                            onClick={() => navigate(`/${text.replace(/\s/g, '_')}`)}
+                          />
                         </ListItem>
                       )
                   ))}

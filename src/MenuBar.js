@@ -1,29 +1,28 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import Divider from '@mui/material/Divider';
-import MenuIcon from '@mui/icons-material/Menu';
-import SettingsIcon from '@mui/icons-material/Settings';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
+import { useState } from 'react';
+import {
+  AppBar,
+  Box,
+  Button,
+  Container,
+  Divider,
+  Drawer,
+  IconButton,
+  List,
+  ListItem,
+  ListItemText,
+  Toolbar,
+  Typography,
+} from '@mui/material';
+import { Menu, Settings } from '@mui/icons-material';
 
-const pages = ['Planner', 'Kitchen', 'Shopping List'];
+const webPages = ['Planner', 'Kitchen', 'Shopping List'];
+const mobilePages = [...webPages, 'divider', 'Settings', 'Account', 'About'];
 
 const MenuBar = () => {
-  const [menuOpen, setMenuOpen] = React.useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const toggleMenu = (open) => (event) => {
-    if (
-      event.type === 'keydown'
-      && (event.key === 'Tab' || event.key === 'Shift')
-    ) {
+  const toggleMenu = open => event => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
     }
 
@@ -34,12 +33,7 @@ const MenuBar = () => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: 'flex' }}
-          >
+          <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1, display: 'flex' }}>
             Chomp
           </Typography>
 
@@ -52,7 +46,7 @@ const MenuBar = () => {
               onClick={toggleMenu(true)}
               color="inherit"
             >
-              <MenuIcon />
+              <Menu />
             </IconButton>
             <Drawer anchor="right" open={menuOpen} onClose={toggleMenu(false)}>
               <Box
@@ -62,24 +56,21 @@ const MenuBar = () => {
                 onKeyDown={toggleMenu(false)}
               >
                 <List>
-                  {pages.map((text) => (
-                    <ListItem button key={text}>
-                      <ListItemText primary={text} />
-                    </ListItem>
-                  ))}
-                </List>
-                <Divider />
-                <List>
-                  {['Settings', 'Account', 'About'].map(text => (
-                    <ListItem button key={text}>
-                      <ListItemText primary={text} />
-                    </ListItem>
+                  {mobilePages.map(text => (
+                    text === 'divider' ?
+                      <Divider key={text} /> :
+                      (
+                        <ListItem button key={text}>
+                          <ListItemText primary={text} />
+                        </ListItem>
+                      )
                   ))}
                 </List>
               </Box>
             </Drawer>
           </Box>
-          {pages.map((page) => (
+
+          {webPages.map(page => (
             <Box
               sx={{
                 flexGrow: 1,
@@ -110,11 +101,12 @@ const MenuBar = () => {
             color="inherit"
             sx={{ display: { xs: 'none', md: 'block' } }}
           >
-            <SettingsIcon />
+            <Settings />
           </IconButton>
         </Toolbar>
       </Container>
     </AppBar>
   );
 };
+
 export default MenuBar;

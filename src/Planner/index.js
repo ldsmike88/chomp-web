@@ -1,9 +1,16 @@
-import { useState } from 'react';
+import {
+  useState,
+  useCallback,
+  // useContext,
+  // useEffect,
+} from 'react';
 import { Card, Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import MealDialog from './MealDialog';
 import { Loading } from '../sharedComponents';
-import { useMeals } from '../contexts/Meals';
+import { useMeals } from '../contexts';
+// import { MealsContext } from '../contexts/Meals';
+// import { MealsContext } from '../contexts/Meals';
 
 const MyCard = styled(Card)(({ theme }) => ({
   color: 'darkslategray',
@@ -17,15 +24,26 @@ const Planner = () => {
   const [selectedMealId, setSelectedMealId] = useState(null);
   const [mealDialogOpen, setMealDialogOpen] = useState(false);
 
-  const open = mealId => {
+  // const [meals, setMeals] = useState(undefined);
+  // const { getMeals } = useMeals();
+  // useEffect(() => { setMeals(getMeals()); }, [getMeals]);
+
+  const open = useCallback(mealId => {
     setMealDialogOpen(true);
     setSelectedMealId(mealId);
-  };
-  const close = () => setMealDialogOpen(false);
+  }, [setMealDialogOpen, setSelectedMealId]);
+  const close = useCallback(() => setMealDialogOpen(false), [setMealDialogOpen]);
 
-  const { getMeals } = useMeals();
+  // const { getMeals } = useMeals();
+  // const meals = getMeals();
+  // let meals;
 
-  const meals = getMeals();
+  const { meals } = useMeals();
+
+  // setTimeout(() => {
+  //   // meals = useMeals().meals;
+  //   meals = useContext(MealsContext).meals;
+  // }, 1000);
 
   if (!meals) return <Loading />;
 
@@ -35,7 +53,7 @@ const Planner = () => {
         {meals.map(({ _id, name, image }) => (
           <MyCard
             key={_id}
-            onClick={() => open(_id)}
+            onClick={() => { open(_id); }}
             sx={{
               display: 'flex',
               flexDirection: { xs: 'column', md: 'row' },

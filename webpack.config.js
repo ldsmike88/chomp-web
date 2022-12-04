@@ -8,7 +8,13 @@ module.exports = {
   },
   devServer: {
     static: './dist',
+    // inline: true,
+    // public: '0.0.0.0:8080',
+    host: '0.0.0.0', // your ip address
+    port: 8080,
+    allowedHosts: 'all',
   },
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
